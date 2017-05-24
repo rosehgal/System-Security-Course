@@ -1,5 +1,3 @@
-- First of all create **summerschool.h** file that contains declaration of all functions
-
 - Create **add.c** & **sub.c** files
 
 - Create object files from **add.c** & **sub.c**
